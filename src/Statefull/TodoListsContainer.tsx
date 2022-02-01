@@ -11,7 +11,7 @@ export default class TodoListsContainer extends Component <Props>{
 
   state = {
     isAdded: false,
-    Lists: [{}],
+    todoListsContainer: [],
     lastIdList: 3,
     // List: new List(this.props),
   }

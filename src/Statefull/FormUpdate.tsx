@@ -29,7 +29,7 @@ export default class FormUpdate extends Component <Props> {
     })
   }
 
-  handleConfirmUpdate = (e : React.MouseEventHandler<HTMLButtonElement>) => {
+  handleConfirmUpdate = () => {
     this.props.confirmUpdate(
       this.props.id, 
       this.state.titleUpdated, 

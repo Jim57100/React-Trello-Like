@@ -12,7 +12,7 @@ class NewList extends Component <{title:string}, Props>{
     title : '',
     // List  : new List(this.props.title, )
   }
-
+  
 
   handleSubmit = () => {
     console.log('créer !');
