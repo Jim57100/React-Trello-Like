@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, FormEvent, MouseEventHandler} from 'react';
 
 
 interface Props {
@@ -7,10 +7,11 @@ interface Props {
   description :string,
   assignedTo :string,
   priority :string,
-  
+  confirmUpdate :Function;
+  onClick : React.MouseEventHandler<HTMLButtonElement>,
 }
 
-export default class FormUpdate extends Component <Props>{
+export default class FormUpdate extends Component <Props> {
 
   state = {
     titleUpdated       : "",
@@ -28,8 +29,15 @@ export default class FormUpdate extends Component <Props>{
     })
   }
 
-  handleConfirmUpdate = (e) => {
-    this.props.confirmUpdate(this.props.id, this.state.titleUpdated, this.state.descriptionUpdated, this.state.assignedToUpdated, this.state.priorityUpdated);
+  handleConfirmUpdate = (e : React.MouseEventHandler<HTMLButtonElement>) => {
+    this.props.confirmUpdate(
+      this.props.id, 
+      this.state.titleUpdated, 
+      this.state.descriptionUpdated, 
+      this.state.assignedToUpdated, 
+      this.state.priorityUpdated
+      
+    );
   } 
 
   render() {

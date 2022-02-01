@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, FormEvent, MouseEventHandler} from 'react';
 import List from './List';
 
 interface Props {
@@ -7,7 +7,9 @@ interface Props {
   assignedTo :string,
   priority :string,
   description :string,
-  handleSubmit(e: React.ChangeEvent<any>): void;
+  send :Function,
+  handleSubmit :Function,
+  onSubmit: (e: React.FormEvent) => void;
 }
 
 class Form extends Component <Props> {       //<{}, FormProps> => WTF ???
@@ -19,12 +21,9 @@ class Form extends Component <Props> {       //<{}, FormProps> => WTF ???
     priority: '0',
     description: '',
   }
-
-  // MouseEventHandler<HTMLButtonElement>
-
   
-  onSubmit = (e) => {
-    e.prevent.default;
+  onSubmit = (e :FormEvent) => {
+    e.preventDefault();
     this.props.send(this.state.newTask, this.state.description, this.state.assignedTo, this.state.priority);
     this.setState({
       isAdded : false,
@@ -34,6 +33,8 @@ class Form extends Component <Props> {       //<{}, FormProps> => WTF ???
       description: '',
     })
   }
+  handleSubmit: MouseEventHandler<HTMLButtonElement> | undefined;
+  
 
   render() {
   

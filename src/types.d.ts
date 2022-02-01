@@ -17,6 +17,8 @@ type Task = {
   assignedTo  :string,
 }
 
+type confirmUpdate = (id :number, titleUpdated :string, descriptionUpdated :string, assignedToUpdated :string, priorityUpdated :string) => void;
+
 type handleConfirmUpdate = (event: React.MouseEvent<HTMLButtonElement>) => void;
 
 // type AddTitle       = (newTask :string) => void;

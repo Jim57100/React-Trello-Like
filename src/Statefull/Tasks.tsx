@@ -11,6 +11,7 @@ interface Props {
   priority :string,
   lastIdTask :number,
   idTaskToUpdate :number,
+  closeForm :Function
 }
 
 class Tasks extends Component <Props>{

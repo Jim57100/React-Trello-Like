@@ -1,20 +1,17 @@
 import React, {Component} from 'react';
 import List from './List';
 
-// interface Props {
-//   title :string,
-//   isAdded :boolean,
-//   // List :Object,
-// }
+interface Props {
+  // title :string,
+  // isAdded :boolean,
+  // List :Object,
+}
 
-export default class TodoListsContainer extends Component {
+export default class TodoListsContainer extends Component <Props>{
 
   state = {
-    // title :'',
     isAdded: false,
-    Lists: [
-      {}
-    ]
+    Lists: [{}],
     lastIdList: 3,
     // List: new List(this.props),
   }
@@ -23,9 +20,9 @@ export default class TodoListsContainer extends Component {
 
     return(
       <>
-      <ul>
-        <List isAdded={this.state.isAdded} closeForm={() => this.setState({isAdded:false})}/>
-      </ul>
+        <ul>
+          <List isAdded={this.state.isAdded} closeForm={() => this.setState({isAdded:false})}/>
+        </ul>
       </>
 
       /* {Component List

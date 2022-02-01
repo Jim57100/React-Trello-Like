@@ -6,7 +6,8 @@ import Tasks from './Tasks';
 
 interface Props {
   title :string,
-  isAdded :boolean
+  isAdded :boolean,
+  handleCreateTask: Function,
 }
 
 class List extends Component <Props>{
@@ -18,6 +19,7 @@ class List extends Component <Props>{
   handleShowForm = () => this.setState((oldState) => {
     return { isAdded: !oldState.isAdded };
   });
+  
 
   render() {
     return (
