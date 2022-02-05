@@ -1,21 +1,14 @@
 import React, {Component, FormEvent, MouseEventHandler} from 'react';
-import List from './List';
+import Button from '../Stateless/Button';
+
 
 interface Props {
-  isAdded :boolean,
-  newTask :string,
-  assignedTo :string,
-  priority :string,
-  description :string,
   send :Function,
-  handleSubmit :Function,
-  onSubmit: (e: React.FormEvent) => void;
 }
 
-class Form extends Component <Props> {       //<{}, FormProps> => WTF ???
+class FormTask extends Component <Props> {   
 
   state = {
-    isAdded : false,
     newTask : '',
     assignedTo: '',
     priority: '0',
@@ -26,16 +19,14 @@ class Form extends Component <Props> {       //<{}, FormProps> => WTF ???
     e.preventDefault();
     this.props.send(this.state.newTask, this.state.description, this.state.assignedTo, this.state.priority);
     this.setState({
-      isAdded : false,
       newTask : '',
       assignedTo: '',
       priority: '0',
       description: '',
     })
   }
-  handleSubmit: MouseEventHandler<HTMLButtonElement> | undefined;
-  
 
+  
   render() {
   
     return (
@@ -64,7 +55,8 @@ class Form extends Component <Props> {       //<{}, FormProps> => WTF ???
             </select>
           </div>
         </form>
-        <button className='btn btn-success' type="submit" onClick={this.handleSubmit}>Envoyer</button>
+        <Button type="submit" color="success" clic={this.onSubmit}>Envoyer</Button>
+        {/* <button className='btn btn-success' type="submit" onClick={this.onSubmit}>Envoyer</button> */}
       </>
 
       );
@@ -72,4 +64,4 @@ class Form extends Component <Props> {       //<{}, FormProps> => WTF ???
   }
 }
 
-export default Form;
+export default FormTask;
